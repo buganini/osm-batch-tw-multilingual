@@ -24,49 +24,71 @@ class TestData():
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"測,.試 (te,.st)"
+					u"test":u"1",
+					u"name":u"te,.0st"
 				}
 			},
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"測,.試 te,.st"
+					u"test":u"2",
+					u"name":u"測,.0試"
 				}
 			},
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"te,.st (測,.試)"
+					u"test":u"3",
+					u"name":u"測,-.0試 (te,-.s0t)"
 				}
 			},
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"te,.st 測,.試"
+					u"test":u"4",
+					u"name":u"測,-.0試 te,-.s0t"
 				}
 			},
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"測,.試 (ȁȅȉȍȑȕȀȄȈȌ,.ȐȔ)"
+					u"test":u"5",
+					u"name":u"te,-.0st (測,-.0試)"
 				}
 			},
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"測,.試 ȁȅȉȍȑȕȀȄȈȌ,.ȐȔ"
+					u"test":u"6",
+					u"name":u"te,-.0st 測,-.0試"
 				}
 			},
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"ȁȅȉȍȑȕȀȄȈȌ,.ȐȔ (測,.試)"
+					u"test":u"7",
+					u"name":u"測,.0試 (ȁȅȉȍȑȕȀȄȈȌ,-.Ȑ0Ȕ)"
 				}
 			},
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"ȁȅȉȍȑȕȀȄȈȌ,.ȐȔ 測,.試"
+					u"test":u"8",
+					u"name":u"測,.0試 ȁȅȉȍȑȕȀȄȈȌ,.Ȑ0Ȕ"
+				}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"test":u"9",
+					u"name":u"ȁȅȉȍȑȕȀȄȈ0Ȍ,.0ȐȔ (測,.0試)"
+				}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"test":u"10",
+					u"name":u"ȁȅȉȍȑȕȀȄȈ0Ȍ,.ȐȔ 測,.0試"
 				}
 			},
 		]
@@ -80,7 +102,7 @@ class TestData():
 
 	@classmethod
 	def gen(cls):
-		print "Generating…"
+		print "Generating test data..."
 		if os.path.exists(cls.picklefile):
 			cls.clean_pickle()
 		from setting import username, password
@@ -115,7 +137,7 @@ class TestData():
 
 	@classmethod
 	def clean(cls):
-		print "Cleanup…"
+		print "Cleanup test data..."
 		from setting import username, password
 		api = osmapi.OsmApi(api = cls.devapi, username = username, password = password)
 
@@ -141,5 +163,4 @@ class TestData():
 		data_rt_bak=cls.data_rt
 		cls.data_rt=pickle.load(open(cls.picklefile))
 		cls.clean()
-		os.remove(cls.picklefile)
 		cls.data_rt=data_rt_bak
