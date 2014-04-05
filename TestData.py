@@ -24,9 +24,51 @@ class TestData():
 			{
 				u"nd":[0,1],
 				u"tag":{
-					u"name":u"測試 (test)"
+					u"name":u"測,.試 (te,.st)"
 				}
-			}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"name":u"測,.試 te,.st"
+				}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"name":u"te,.st (測,.試)"
+				}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"name":u"te,.st 測,.試"
+				}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"name":u"測,.試 (ȁȅȉȍȑȕȀȄȈȌ,.ȐȔ)"
+				}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"name":u"測,.試 ȁȅȉȍȑȕȀȄȈȌ,.ȐȔ"
+				}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"name":u"ȁȅȉȍȑȕȀȄȈȌ,.ȐȔ (測,.試)"
+				}
+			},
+			{
+				u"nd":[0,1],
+				u"tag":{
+					u"name":u"ȁȅȉȍȑȕȀȄȈȌ,.ȐȔ 測,.試"
+				}
+			},
 		]
 	}
 
@@ -38,6 +80,7 @@ class TestData():
 
 	@classmethod
 	def gen(cls):
+		print "Generating…"
 		if os.path.exists(cls.picklefile):
 			cls.clean_pickle()
 		from setting import username, password
@@ -72,6 +115,7 @@ class TestData():
 
 	@classmethod
 	def clean(cls):
+		print "Cleanup…"
 		from setting import username, password
 		api = osmapi.OsmApi(api = cls.devapi, username = username, password = password)
 
