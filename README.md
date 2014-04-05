@@ -21,4 +21,5 @@
 	python batch.py taiwan-latest.osm.pbf
 
 ##Todo
-	Sec./Rd.
+	English normalization
+		Sec./Rd./Blvd.
